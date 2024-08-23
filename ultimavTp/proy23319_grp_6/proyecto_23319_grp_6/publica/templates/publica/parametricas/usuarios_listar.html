@@ -1,0 +1,52 @@
+<!-- view html listar usuarios, hereda de index.html
+ modelo usuarios: foto, fecha_alta, codigo_postal,calle, provincia, telefono, email, user_id -->
+{% extends '../index.html' %} 
+{% block content %}
+<!-- Header-->
+<div class="container">
+    <div class="bg-dark ">    
+          <div class="text-center text-white">
+              <h1 class="display-6 fw">Listado de Usuarios</h1>         
+          </div>
+      
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Fecha Alta</th>
+          <th>Codigo Postal</th>
+          <th>Calle</th>
+          <th>Provincia</th>
+          <th>Telefono</th>
+          <th>Email</th>
+          <th>Usuario</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+          <td>{{ usuario.foto }}</td>
+          <td>{{ usuario.fecha_alta }}</td>
+          <td>{{ usuario.codigo_postal }}</td>
+          <td>{{ usuario.calle }}</td>
+          <td>{{ usuario.provincia }}</td>
+          <td>{{ usuario.telefono }}</td>
+          <td>{{ usuario.email }}</td>
+          <td>{{ usuario.user_id }}</td>
+          <td>
+            <a href="{% url 'formUsuario' usuario.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'eliminarUsuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>    
+
+
+</div>
+{% endblock %}
+

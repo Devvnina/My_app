@@ -1,0 +1,9 @@
+{% extends './home.html' %}
+{% block content %}
+    <h1>Product55 List</h1>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,5 @@
+id;numero;tamanio;cantidadHuespedes;amenities;disponibilidad;precio
+1;1;1;1;2,3,4,5,6;0;2300
+2;2;2;2;1,2,3,4,5,6;0;4600
+3;3;3;3;2,3,4,5,6;0;6900
+4;4;4;4;1,2,3,4,5,6;0;9200

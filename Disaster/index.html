@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data View</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through the data array and generate table rows -->
+      {{#each data}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.age}}</td>
+        <td>{{this.email}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>

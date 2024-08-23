@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>    
+    <title>tp2-Calculadora</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">     
+    <style>
+        .display {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        }
+        #visor{
+            font-family: 'Press Start 2P', cursive;
+        }
+        .borda{
+            -webkit-box-shadow: 0 3px 9px black;
+            box-shadow: 0 3px 9px black;
+            border-radius: 3px;
+            -webkit-transition: border .2s ease-in-out;
+            transition: border .2s ease-in-out;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="container" class="container">
+       
+        <div class="row">
+            <div class="col-xs-12" id="titulo">
+                <h3 >Calculadora Básica</h3>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-xs-12 col-sm-6 col-md-3 fundo-mod margem borda">
+                    
+                <div class="justify-content-center centro">
+                    
+                    <table class="table table-dark">
+                        <tr>
+                            
+                            <td colspan="4" > <div  id="showInit"></div></td>
+                        </tr>
+                        <tr>
+                            
+                            <td colspan="4" class="info">
+                                <input style="color: black;" type="text" name="visor" id="visor" class="col-xs-12 col-sm-12 col-md-12 " />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button"  value="7" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="8" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="9" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="/" class="btn btn-info  " onclick="btn_request(value);" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button"  value="4" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td><input type="button"  value="5" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td><input type="button"  value="6" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td><input type="button"  value="*" class="btn btn-info  " onclick="btn_request(value);"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button"  value="1" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="2" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="3" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="-" class="btn btn-info  " onclick="btn_request(value);" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button"  value="0" class="btn btn-secondary  " onclick="initPress(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="=" class="btn btn-info  " onclick="btn_iquals();"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="C" class="btn btn-danger  " onclick="reset(value);"/>
+                            </td>
+                            <td>
+                                <input type="button"  value="+" class="btn btn-info  " onclick="btn_request(value);"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+
+       
+    </div>
+   
+   <script>
+    let valorVisor = 0;
+        let numberA;
+        let numberB;
+        let operation;
+
+        const showMessage = ()=>{document.getElementById("showInit").innerHTML=new Date().toDateString()}
+        const limpiar = ()=>{document.getElementById('visor').value = '';}  
+        function initPress(number) {
+            var auxiliar = document.getElementById("visor").value;    
+            valorVisor = document.getElementById("visor").value = auxiliar + number;
+        
+        }
+        function btn_request(caracter){    
+            numberA = valorVisor;
+            operation = new String(caracter).valueOf();    
+            limpiar();
+        
+        }
+        function reset() { 
+            limpiar();
+            valorVisor = 0;
+            operation = "";
+        }
+
+        const btn_iquals = ()=>{
+            numberB = valorVisor;
+            calcular();
+        }
+
+        function calcular() {
+        
+            var total = 0;
+            var ultimoTotal = 0;
+            switch(operation){
+                case "+":
+                total = parseFloat(numberA) + parseFloat(numberB);
+                break;
+                case "-":
+                    total = parseFloat(numberA) - parseFloat(numberB);
+                    break;
+                case "*":
+                total = parseFloat(numberA) * parseFloat(numberB);
+                break;
+                case "/":
+                total = parseFloat(numberA) / parseFloat(numberB);
+                break;
+            }
+            ultimoTotal = total;
+            reset();
+            
+            valorVisor = ultimoTotal;
+
+        document.getElementById('visor').value = total;
+        }
+        showMessage();
+   </script>
+</body>
+</html>    

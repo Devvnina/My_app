@@ -1,0 +1,38 @@
+<!-- view html para listar las clasificaciones del producto, hereda de index.html -->
+
+{% extends '../index.html' %}
+{% block content %}
+<!-- Header-->
+<div class="container">
+    <div class="bg-dark ">    
+          <div class="text-center text-white">
+              <h1 class="display-6 fw">Listado de Clasificaciones</h1>         
+          </div>
+      
+  </div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for clasificacion in clasificaciones %}
+        <tr>
+          <td>{{ clasificacion.nombre }}</td>
+          <td>{{ clasificacion.descripcion }}</td>
+          <td>
+            <a href="{% url 'formClasificacion' clasificacion.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'eliminarClasificacion' clasificacion.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+

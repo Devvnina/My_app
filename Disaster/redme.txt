@@ -1,0 +1,3 @@
+# esta una app en node js, que muestra las ciudades mas afectadas por catastrofes naturales
+# La app  muestra una lista de las ciudades, informacion de la poblacion afectada, tipo de desastre
+# Regiones y estadisticas de los desastres

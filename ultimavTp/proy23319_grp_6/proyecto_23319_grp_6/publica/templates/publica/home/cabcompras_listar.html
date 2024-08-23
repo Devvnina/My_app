@@ -1,0 +1,42 @@
+<!-- view de las compras-->
+{% extends '../index.html' %}
+{% block content %}
+<div>
+    <div class="bg-dark ">    
+          <div class="text-center text-white">
+              <h1 class="display-6 fw">Listado de Compras</h1>         
+          </div>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Usuario</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for compra in compras %}
+            <tr>
+                <td>{{ compra.fecha }}</td>
+                <td>{{ compra.usuario }}</td>
+                <td>{{ compra.producto }}</td>
+                <td>{{ compra.cantidad }}</td>
+                <td>{{ compra.precio }}</td>
+                <td>{{ compra.subtotal }}</td>
+                <td>
+                    <a href="{% url 'compras_editar' compra.id %}">Editar</a>
+                    <a href="{% url 'compras_eliminar' compra.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'compras_nuevo' %}">Nuevo</a>
+</div>
+{% endblock %}
+

@@ -1,0 +1,48 @@
+<!-- view html listado de productos y sus clasificaciones, hereda de index.html,
+'desc_producto', 'estado', 'fecha_alta', 'foto', 'clasificacion_id', 'persona_id', 'precio', 'stock'-->
+
+{% extends '../index.html' %}
+
+{% block content %}
+<div>
+    <div class="bg-dark ">    
+          <div class="text-center text-white">
+              <h1 class="display-6 fw">Listado de Productos</h1>         
+          </div>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Descripcion</th>
+          <th>Estado</th>
+          <th>Fecha Alta</th>
+          <th>Foto</th>
+          <th>Clasificacion</th>
+          <th>Persona</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for producto in productos %}
+        <tr>
+          <td>{{ producto.desc_producto }}</td>
+          <td>{{ producto.estado }}</td>
+          <td>{{ producto.fecha_alta }}</td>
+          <td>{{ producto.foto }}</td>
+          <td>{{ producto.clasificacion_id }}</td>
+          <td>{{ producto.persona_id }}</td>
+          <td>{{ producto.precio }}</td>
+          <td>{{ producto.stock }}</td>
+          <td>
+            <a href="{% url 'formProducto' producto.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'eliminarProducto' producto.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+{% endblock %}

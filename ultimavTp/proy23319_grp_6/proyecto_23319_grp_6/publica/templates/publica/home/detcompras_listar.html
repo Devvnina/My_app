@@ -1,0 +1,43 @@
+<!-- html que muestra el listado de las compras del modelo detcompras-->
+{% extends "publica/base.html" %}
+{% block title %}Listado de Detcompras{% endblock %}
+{% block content %}
+<h2>Listado de Detcompras</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Idcompra</th>
+            <th>Idproducto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for detcompra in detcompras %}
+        <tr>
+            <td><a href="{{ path('detcompras_show', { 'id': detcompra.id }) }}">{{ detcompra.id }}</a></td>
+            <td>{{ detcompra.idcompra }}</td>
+            <td>{{ detcompra.idproducto }}</td>
+            <td>{{ detcompra.cantidad }}</td>
+            <td>{{ detcompra.precio }}</td>
+            <td>{{ detcompra.subtotal }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('detcompras_show', { 'id': detcompra.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('detcompras_edit', { 'id': detcompra.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<a href="{{ path('detcompras_new') }}">Create new</a>
+{% endblock %}  
+

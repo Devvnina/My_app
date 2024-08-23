@@ -1,0 +1,60 @@
+<!-- esta vista es de los datos de DISASTERS1 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data View</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Disaster Number</th>
+        <th>State</th>
+        <th>Declaration Type</th>
+        <th>Declaration Date</th>
+        <th>Disaster Type</th>
+        <th>Incident Type</th>
+        <th>Declaration Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Close Date</th>
+        <th>Place Code</th>
+        <th>Declared County/Area</th>
+        <th>Declaration Request Number</th>
+        <th>Hash</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through the data array and generate table rows -->
+      {{#each data}}
+      <tr>
+        <td>{{this.disasterNumber}}</td>
+        <td>{{this.state}}</td>
+        <td>{{this.declarationType}}</td>
+        <td>{{this.declarationDate}}</td>
+        <td>{{this.disasterType}}</td>
+        <td>{{this.incidentType}}</td>
+        <td>{{this.declarationTitle}}</td>
+        <td>{{this.startDate}}</td>
+        <td>{{this.endDate}}</td>
+        <td>{{this.closeDate}}</td>
+        <td>{{this.placeCode}}</td>
+        <td>{{this.declaredCountyArea}}</td>
+        <td>{{this.declarationRequestNumber}}</td>
+        <td>{{this.hash}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</html>

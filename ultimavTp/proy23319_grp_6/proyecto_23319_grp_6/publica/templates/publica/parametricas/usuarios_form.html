@@ -1,0 +1,18 @@
+<!-- view html para alta de usuarios, hereda de index.html
+campos modelo usuarios: foto, fecha_alta, codigo_postal,calle, provincia, telefono, email, user_id  -->
+ 
+{% extends '../index.html' %}
+ 
+{% block content %}
+<div>
+    <div class="bg-dark ">    
+          <div class="text-center text-white">
+              <h1 class="display-6 fw">Alta de Usuarios</h1>         
+          </div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+</div>

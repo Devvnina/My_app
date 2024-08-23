@@ -1,0 +1,37 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "node ./dist/main.js",
+    "prod": "webpack ./mensaje1.js ./mensaje2.js ./mensaje3.js -o ./mensajes.js --mode='production' -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmanza/webpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/elmanza/webpack/issues"
+  },
+  "homepage": "https://github.com/elmanza/webpack#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
